@@ -28,9 +28,7 @@
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="fullInternalNumber"></param>
         /// <returns></returns>
-        /// <exception cref="System.ComponentModel.InvalidEnumArgumentException"></exception>
-        FormattedPhoneNumber Format(PhoneFormat fullInternalNumber);
+        FormattedPhoneNumber Format();
     }
 }

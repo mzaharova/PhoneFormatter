@@ -22,7 +22,7 @@ namespace Bru.PhoneFormatter
 
         public CountryPhoneCode CountryPhoneCode { get; private set; }
 
-        public FormattedPhoneNumber Format(PhoneFormat fullInternalNumber)
+        public FormattedPhoneNumber Format()
         {
             throw new System.NotImplementedException();
         }
