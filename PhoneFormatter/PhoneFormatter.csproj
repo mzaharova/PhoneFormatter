@@ -49,7 +49,6 @@
     <Compile Include="FormattedPhoneNumber.cs" />
     <Compile Include="Formatter.cs" />
     <Compile Include="IFormatter.cs" />
-    <Compile Include="PhoneFormat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -7,33 +7,16 @@ namespace Bru.PhoneFormatter.Tests
     public class FormattingTests
     {
         [TestMethod]
-        [Description("Phone format is illegal enum value.")]
-        // TODO: Add message.
-        [ExpectedException(typeof(System.ComponentModel.InvalidEnumArgumentException))]
-        public void PhoneFormatValidationTest()
-        {
-            const long phoneNumber = 284444;
-            const int code = 222;
-            const CountryPhoneCode countryPhoneCode = CountryPhoneCode.Belarus;
-            const PhoneFormat phoneFormat = (PhoneFormat)1000;
-
-            IFormatter formatter = new Formatter(phoneNumber, code, countryPhoneCode);
-
-            formatter.Format(phoneFormat);
-        }
-
-        [TestMethod]
         // TODO: Add description.
         public void ResultNotNullTest()
         {
             const long phoneNumber = 284444;
             const int code = 222;
             const CountryPhoneCode countryPhoneCode = CountryPhoneCode.Belarus;
-            const PhoneFormat phoneFormat = PhoneFormat.FullInternalNumber;
 
             IFormatter formatter = new Formatter(phoneNumber, code, countryPhoneCode);
 
-            var formattedPhoneNumber = formatter.Format(phoneFormat);
+            var formattedPhoneNumber = formatter.Format();
 
             // TODO: Add message.
             Assert.IsNotNull(formattedPhoneNumber);
@@ -48,12 +31,10 @@ namespace Bru.PhoneFormatter.Tests
             const long phoneNumber = 284444;
             const int code = 222;
             const CountryPhoneCode countryPhoneCode = CountryPhoneCode.Belarus;
-            const PhoneFormat phoneFormat = PhoneFormat.FullInternalNumber;
 
             IFormatter formatter = new Formatter(phoneNumber, code, countryPhoneCode);
 
-            var formattedPhoneNumber = formatter.Format(phoneFormat);
-
+            var formattedPhoneNumber = formatter.Format();
 
             // TODO: Add message.
             Assert.IsNotNull(formattedPhoneNumber.E123);
@@ -69,12 +50,10 @@ namespace Bru.PhoneFormatter.Tests
             const long phoneNumber = 11234567;
             const int code = 42;
             const CountryPhoneCode countryPhoneCode = CountryPhoneCode.Netherlands;
-            const PhoneFormat phoneFormat = PhoneFormat.FullInternationalNumber;
 
             IFormatter formatter = new Formatter(phoneNumber, code, countryPhoneCode);
 
-            var formattedPhoneNumber = formatter.Format(phoneFormat);
-
+            var formattedPhoneNumber = formatter.Format();
 
             // TODO: Add message.
             Assert.IsNotNull(formattedPhoneNumber.E123);
@@ -94,11 +73,10 @@ namespace Bru.PhoneFormatter.Tests
             const long phoneNumber = 284444;
             const int code = 222;
             const CountryPhoneCode countryPhoneCode = CountryPhoneCode.Afghanistan;
-            const PhoneFormat phoneFormat = PhoneFormat.FullInternalNumber;
 
             IFormatter formatter = new Formatter(phoneNumber, code, countryPhoneCode);
 
-            var formattedPhoneNumber = formatter.Format(phoneFormat);
+            var formattedPhoneNumber = formatter.Format();
             formattedPhoneNumber.GetNationalFormattedPhone();
         }
 
@@ -110,11 +88,10 @@ namespace Bru.PhoneFormatter.Tests
             const long phoneNumber = 284444;
             const int code = 222;
             const CountryPhoneCode countryPhoneCode = CountryPhoneCode.Afghanistan;
-            const PhoneFormat phoneFormat = PhoneFormat.FullInternalNumber;
 
             IFormatter formatter = new Formatter(phoneNumber, code, countryPhoneCode);
 
-            var formattedPhoneNumber = formatter.Format(phoneFormat);
+            var formattedPhoneNumber = formatter.Format();
             var nationalFormattedPhone = formattedPhoneNumber.ToString();
 
             // TODO: Add message.
@@ -128,11 +105,10 @@ namespace Bru.PhoneFormatter.Tests
             const long phoneNumber = 284444;
             const int code = 222;
             const CountryPhoneCode countryPhoneCode = CountryPhoneCode.Belarus;
-            const PhoneFormat phoneFormat = PhoneFormat.FullInternationalNumber;
 
             IFormatter formatter = new Formatter(phoneNumber, code, countryPhoneCode);
 
-            var formattedPhoneNumber = formatter.Format(phoneFormat);
+            var formattedPhoneNumber = formatter.Format();
             var nationalFormattedPhone = formattedPhoneNumber.GetNationalFormattedPhone();
 
             // TODO: Add message.
@@ -155,11 +131,10 @@ namespace Bru.PhoneFormatter.Tests
             const long phoneNumber = 6284444;
             const int code = 29;
             const CountryPhoneCode countryPhoneCode = CountryPhoneCode.Belarus;
-            const PhoneFormat phoneFormat = PhoneFormat.FullInternationalNumber;
 
             IFormatter formatter = new Formatter(phoneNumber, code, countryPhoneCode);
 
-            var formattedPhoneNumber = formatter.Format(phoneFormat);
+            var formattedPhoneNumber = formatter.Format();
             var nationalFormattedPhone = formattedPhoneNumber.GetNationalFormattedPhone();
 
             // TODO: Add message.
