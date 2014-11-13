@@ -31,6 +31,6 @@
         /// <param name="fullInternalNumber">Determines in what form will the phone number</param>
         /// <returns>The telephone number in the formatted form</returns>
         /// <exception cref="System.ComponentModel.InvalidEnumArgumentException"></exception>
-        FormattedPhoneNumber Format(PhoneFormat fullInternalNumber);
+        FormattedPhoneNumber Format();
     }
 }

@@ -55,29 +55,16 @@ namespace Bru.PhoneFormatter
 
         public CountryPhoneCode CountryPhoneCode { get; private set; }
 
-        public FormattedPhoneNumber Format(PhoneFormat fullInternalNumber)
+        public FormattedPhoneNumber Format()
         {
             var _format = new FormattedPhoneNumber();
             var _countryPhoneCode = (int) CountryPhoneCode;
             var _phoneNumber = PhoneNumber.ToString();
             var _code = Code.ToString();
 
-            if (Enum.IsDefined(typeof(PhoneFormat), fullInternalNumber) == false)
-            {
-                throw new System.ComponentModel.InvalidEnumArgumentException("Phone format is illegal enum value.");
-            }
+            _format.E123 = _phoneNumber.Insert(0, _code).Insert(0, _countryPhoneCode.ToString()).Insert(0, _plus);
 
-            switch (fullInternalNumber)
-            {
-                case PhoneFormat.FullInternalNumber:
-                    _format.E123 = _phoneNumber.Insert(0, _code).Insert(0, _countryPhoneCode.ToString()).Insert(0, _plus);
-                    return _format;
-                case PhoneFormat.FullInternationalNumber:
-                    _format.E123 = _phoneNumber.Insert(0, _code).Insert(0, _countryPhoneCode.ToString()).Insert(0, _plus);
-                    return _format;
-                default:
-                    return _format;
-            }
+            return _format;
         }
     }
 }
