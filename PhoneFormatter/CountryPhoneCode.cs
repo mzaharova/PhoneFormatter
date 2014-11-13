@@ -2,7 +2,7 @@
 {
     // TODO: Fill xml documentation.
     /// <summary>
-    /// 
+    /// Enum country codes
     /// </summary>
     public enum CountryPhoneCode
     {
@@ -170,7 +170,7 @@
         Tokelau = 690,
         FsMicronesia = 691,
         MarshallIslands = 692,
-        RussiaKazakhstan = 7,
+        Russia = 7,
         IntlFreephone = 800,
         Japan = 81,
         Korea = 82,
