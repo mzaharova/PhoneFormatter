@@ -72,12 +72,12 @@ namespace Bru.PhoneFormatter.Tests
         {
             const long phoneNumber = 284444;
             const int code = 222;
-            const CountryPhoneCode countryPhoneCode = CountryPhoneCode.Afghanistan;
+            const CountryPhoneCode countryPhoneCode = CountryPhoneCode.Estonia;
 
             IFormatter formatter = new Formatter(phoneNumber, code, countryPhoneCode);
 
             var formattedPhoneNumber = formatter.Format();
-            formattedPhoneNumber.GetNationalFormattedPhone();
+            formattedPhoneNumber.GetNationalFormattedPhone(phoneNumber, code, countryPhoneCode);
         }
 
         [TestMethod]
@@ -87,7 +87,7 @@ namespace Bru.PhoneFormatter.Tests
         {
             const long phoneNumber = 284444;
             const int code = 222;
-            const CountryPhoneCode countryPhoneCode = CountryPhoneCode.Afghanistan;
+            const CountryPhoneCode countryPhoneCode = CountryPhoneCode.Estonia;
 
             IFormatter formatter = new Formatter(phoneNumber, code, countryPhoneCode);
 
@@ -109,7 +109,7 @@ namespace Bru.PhoneFormatter.Tests
             IFormatter formatter = new Formatter(phoneNumber, code, countryPhoneCode);
 
             var formattedPhoneNumber = formatter.Format();
-            var nationalFormattedPhone = formattedPhoneNumber.GetNationalFormattedPhone();
+            var nationalFormattedPhone = formattedPhoneNumber.GetNationalFormattedPhone(phoneNumber, code, countryPhoneCode);
 
             // TODO: Add message.
             Assert.IsNotNull(nationalFormattedPhone);
@@ -135,7 +135,7 @@ namespace Bru.PhoneFormatter.Tests
             IFormatter formatter = new Formatter(phoneNumber, code, countryPhoneCode);
 
             var formattedPhoneNumber = formatter.Format();
-            var nationalFormattedPhone = formattedPhoneNumber.GetNationalFormattedPhone();
+            var nationalFormattedPhone = formattedPhoneNumber.GetNationalFormattedPhone(phoneNumber, code, countryPhoneCode);
 
             // TODO: Add message.
             Assert.IsNotNull(nationalFormattedPhone);
@@ -145,6 +145,7 @@ namespace Bru.PhoneFormatter.Tests
 
             // TODO: Add message.
             Assert.AreEqual("+375296284444", formattedPhoneNumber.E123);
+            var asdas = formattedPhoneNumber.ToString();
 
             // TODO: Add message.
             Assert.AreEqual(nationalFormattedPhone, formattedPhoneNumber.ToString());

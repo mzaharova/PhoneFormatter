@@ -9,17 +9,16 @@ namespace Bru.PhoneFormatter
     /// </summary>
     public class Formatter : IFormatter
     {
-        internal const string _plus = "+";
-        internal const long _minFguresPhoneNumber = 100000;
-        internal const long _maxFguresPhoneNumber = 100000000;
-        internal const int _maxFguresCode = 10000;
+        private const string Plus = "+";
+        private const long MinFguresPhoneNumber = 100000;
+        private const long MaxFguresPhoneNumber = 100000000;
 
         public Formatter(
             [NotNull] long phoneNumber,
             [NotNull] int code,
             [NotNull] CountryPhoneCode countryCode)
         {
-            if (phoneNumber < _minFguresPhoneNumber)
+            if (phoneNumber < MinFguresPhoneNumber)
             {
                 throw new FormatException("Phone number contains less than 6 figures.");
             }
@@ -29,19 +28,19 @@ namespace Bru.PhoneFormatter
                 throw new FormatException("Phone number is 0.");
             }
 
-            if (phoneNumber > _maxFguresPhoneNumber)
+            if (phoneNumber > MaxFguresPhoneNumber)
             {
                 throw new FormatException("Phone number contains more than 8 figures.");
             }
 
-            if (code > _maxFguresCode)
-            {
-                throw new FormatException("Code contains less than 2 figures.");
-            }
-
-            if (Enum.IsDefined(typeof(CountryPhoneCode), countryCode) == false)
+            if (Enum.IsDefined(typeof (CountryPhoneCode), countryCode) == false)
             {
                 throw new System.ComponentModel.InvalidEnumArgumentException("Country phone code is illegal enum value.");
+            }
+
+            if (code.ToString().Length + phoneNumber.ToString().Length != 12 - ((int) countryCode).ToString().Length)
+            {
+                throw new FormatException("Code contains less than 2 figures.");
             }
 
             PhoneNumber = phoneNumber;
@@ -57,14 +56,12 @@ namespace Bru.PhoneFormatter
 
         public FormattedPhoneNumber Format()
         {
-            var _format = new FormattedPhoneNumber();
-            var _countryPhoneCode = (int) CountryPhoneCode;
-            var _phoneNumber = PhoneNumber.ToString();
-            var _code = Code.ToString();
+            var format = new FormattedPhoneNumber
+            {
+                E123 = Plus + (int) CountryPhoneCode + Code + PhoneNumber,
+            };
 
-            _format.E123 = _phoneNumber.Insert(0, _code).Insert(0, _countryPhoneCode.ToString()).Insert(0, _plus);
-
-            return _format;
+            return format;
         }
     }
 }
